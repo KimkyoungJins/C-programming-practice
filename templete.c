@@ -584,3 +584,16 @@ void saveReport(struct st_person* p[], int size, int groups){
   printf("> Report file (report.txt) saved.\n");
   fclose(file);
 }
+
+
+
+// Sub function of saveReport()
+void saveListGroup(struct st_person* p[], int size, int groups, FILE* file){
+  int f_count=0, m_count=0;
+  for(int g=1; g<=groups; g++){
+    int count[10] = {0};
+    fprintf(file, "\nGroup #%d\n", g);
+    for (int i = 0; i < size; i++){
+      if(p[i]->group == g){
+        fprintf(file, "- %s\n", toString(p[i], 1));
+        if(p[i]->
